@@ -63,19 +63,47 @@ const countries2 = [
 	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5'}
 ];
 
+countries2.forEach(item => {
+    let div = document.createElement("div");
+    let h4 = document.createElement("h4");
+    let img = document.createElement("img");
 
+    h4.innerHTML = item.title;
+    img.src = item.imgUrl;
+    div.appendChild(h4);
+    div.appendChild(img);
+    document.body.appendChild(div);
+});
 
 
 /* 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último 
 elemento de la serie de divs. */
 
+let boton = document.createElement("button");
 
+boton.innerHTML = "Eliminar ultimo elemento";
 
+document.body.appendChild(boton);
+
+boton.addEventListener("click", () => {
+    let divs = document.querySelectorAll("div");
+    let ultimoDiv = divs[divs.length - 1];
+    ultimoDiv.remove();
+});
 
 
 /* 1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los 
 divs que elimine ese mismo elemento del html. */
 
+let divs = document.querySelectorAll("div");
 
+divs.forEach(div => {
+    let boton = document.createElement("button");
+    boton.innerHTML="Eliminar Elemento";
 
+    div.appendChild(boton);
 
+    boton.addEventListener("click", ()=> {
+        div.remove();
+    });
+});
