@@ -85,10 +85,24 @@ elementos.forEach(elemento => {
 /* 2.8 Inserta una p con el texto 'Voy en medio!' entre los dos div. 
 	Recuerda que no solo puedes insertar elementos con .appendChild. */
 
+let parrafoMedio = document.createElement("p");
+parrafoMedio.innerHTML = "Voy en medio!";
 
+let primerDiv = document.querySelectorAll("div")[0];
+
+primerDiv.insertAdjacentElement("afterend", parrafoMedio);
 
 
 /* 2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase 
 	.fn-insert-here */
 
+let parrafoDentro = document.createElement("p");
+parrafoDentro.innerHTML = "Voy dentro!";
+    
+let divInsertHere = document.querySelectorAll(".fn-insert-here");
+    
+divInsertHere.forEach(elemento => {
+    let parrafoClonado = parrafoDentro.cloneNode(true);
 
+    elemento.insertAdjacentElement("afterbegin", parrafoClonado);
+});
